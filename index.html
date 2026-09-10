@@ -53,6 +53,7 @@ nav.side a{display:flex;gap:9px;padding:5px 9px;border-radius:3px;color:var(--mu
 nav.side a:hover{background:var(--surface-2);color:var(--ink)}
 nav.side a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
 nav.side .n{font-family:"JetBrains Mono",monospace;font-size:11px;opacity:.75;min-width:30px}
+nav.tabs{display:none}
 main{flex:1;min-width:0;padding-top:26px}
 header.top{border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:30px}
 h1{font-family:"Saira Condensed",sans-serif;font-size:44px;margin:0;line-height:1.05;letter-spacing:-.01em}
@@ -183,10 +184,31 @@ td.dc .pp{font-size:9px;color:var(--muted)}
 .cmbar button{background:var(--accent);color:var(--surface);border:none;border-radius:4px;
   padding:10px 18px;font:inherit;font-weight:600;cursor:pointer}
 .cmbar button.alt{background:none;color:var(--muted);border:1px solid var(--rule-2)}
-@media(max-width:900px){nav.side{display:none}.wrap{padding:0 14px 60px}h1{font-size:34px}}
+@media(max-width:900px){
+  nav.side{display:none}
+  .wrap{padding:0 14px 60px}
+  h1{font-size:34px}
+  main{padding-top:18px}
+  section{scroll-margin-top:54px}
+  /* horizontal jump-to bar; slides away on scroll down, returns on scroll up */
+  nav.tabs{display:block;position:sticky;top:0;z-index:40;background:var(--ground);
+    border-bottom:1px solid var(--rule);transition:transform .22s ease}
+  nav.tabs.hid{transform:translateY(-102%)}
+  nav.tabs .tabrow{display:flex;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;padding:0 10px}
+  nav.tabs .tabrow::-webkit-scrollbar{display:none}
+  nav.tabs a{flex:0 0 auto;padding:11px 12px 9px;color:var(--muted);text-decoration:none;
+    font-size:13px;white-space:nowrap;border-bottom:2px solid transparent}
+  nav.tabs a.on{color:var(--accent);font-weight:600;border-bottom-color:var(--accent)}
+}
+@media(max-width:900px) and (prefers-reduced-motion:reduce){
+  nav.tabs{transition:none}
+}
 </style></head>
-<body><div class="wrap">
-<nav class="side"><a href="#leaderboard"><span>Coaches</span></a><a href="#standings"><span>Standings</span></a><a href="#brackets"><span>Playoffs</span></a><a href="#champions"><span>Champions</span></a><a href="#toilet"><span>Punishment</span></a><a href="#records"><span>Records</span></a><a href="#h2h"><span>Head to Head</span></a><a href="#trades"><span>Trades</span></a><a href="#draft"><span>Drafts</span></a><a href="#commish"><span>Commissioner</span></a></nav>
+<body>
+<nav class="tabs" aria-label="Sections"><div class="tabrow"><a href="#leaderboard">Coaches</a><a href="#standings">Standings</a><a href="#brackets">Playoffs</a><a href="#champions">Champions</a><a href="#toilet">Punishment</a><a href="#records">Records</a><a href="#h2h">Head to Head</a><a href="#trades">Trades</a><a href="#draft">Drafts</a></div></nav>
+<div class="wrap">
+<nav class="side"><a href="#leaderboard"><span>Coaches</span></a><a href="#standings"><span>Standings</span></a><a href="#brackets"><span>Playoffs</span></a><a href="#champions"><span>Champions</span></a><a href="#toilet"><span>Punishment</span></a><a href="#records"><span>Records</span></a><a href="#h2h"><span>Head to Head</span></a><a href="#trades"><span>Trades</span></a><a href="#draft"><span>Drafts</span></a></nav>
 <main>
 <header class="top"><h1>Degenerate fantasy league</h1>
 <div class="sub"><span>League history</span><span>2019&ndash;2026</span><span>8 seasons</span>
@@ -759,22 +781,6 @@ td.dc .pp{font-size:9px;color:var(--muted)}
 <tr><th class="dr">R15</th><td class="dc p-qb" title="Patrick Mahomes &middot; QB &middot; pick 141 overall"><span class="pn">141</span><span class="pl">Patrick Mahomes</span><span class="pp">QB</span></td><td class="dc p-dst" title="Lions D/ST &middot; DST &middot; pick 142 overall"><span class="pn">142</span><span class="pl">Lions D/ST</span><span class="pp">DST</span></td><td class="dc p-wr" title="Odell Beckham Jr. &middot; WR &middot; pick 143 overall"><span class="pn">143</span><span class="pl">Odell Beckham Jr.</span><span class="pp">WR</span></td><td class="dc p-rb" title="Mike Washington Jr. &middot; RB &middot; pick 144 overall"><span class="pn">144</span><span class="pl">Mike Washington Jr.</span><span class="pp">RB</span></td><td class="dc p-rb" title="Dylan Sampson &middot; RB &middot; pick 145 overall"><span class="pn">145</span><span class="pl">Dylan Sampson</span><span class="pp">RB</span></td><td class="dc p-wr" title="Romeo Doubs &middot; WR &middot; pick 146 overall"><span class="pn">146</span><span class="pl">Romeo Doubs</span><span class="pp">WR</span></td><td class="dc p-te" title="Travis Kelce &middot; TE &middot; pick 147 overall"><span class="pn">147</span><span class="pl">Travis Kelce</span><span class="pp">TE</span></td><td class="dc p-wr" title="Rashid Shaheed &middot; WR &middot; pick 148 overall"><span class="pn">148</span><span class="pl">Rashid Shaheed</span><span class="pp">WR</span></td><td class="dc p-te" title="T.J. Hockenson &middot; TE &middot; pick 149 overall"><span class="pn">149</span><span class="pl">T.J. Hockenson</span><span class="pp">TE</span></td><td class="dc p-dst" title="Chargers D/ST &middot; DST &middot; pick 150 overall"><span class="pn">150</span><span class="pl">Chargers D/ST</span><span class="pp">DST</span></td></tr>
 <tr><th class="dr">R16</th><td class="dc p-te" title="Hunter Henry &middot; TE &middot; pick 160 overall"><span class="pn">160</span><span class="pl">Hunter Henry</span><span class="pp">TE</span></td><td class="dc p-k" title="Evan McPherson &middot; K &middot; pick 159 overall"><span class="pn">159</span><span class="pl">Evan McPherson</span><span class="pp">K</span></td><td class="dc p-dst" title="Giants D/ST &middot; DST &middot; pick 158 overall"><span class="pn">158</span><span class="pl">Giants D/ST</span><span class="pp">DST</span></td><td class="dc p-wr" title="Jordyn Tyson &middot; WR &middot; pick 157 overall"><span class="pn">157</span><span class="pl">Jordyn Tyson</span><span class="pp">WR</span></td><td class="dc p-wr" title="Jalen McMillan &middot; WR &middot; pick 156 overall"><span class="pn">156</span><span class="pl">Jalen McMillan</span><span class="pp">WR</span></td><td class="dc p-dst" title="Patriots D/ST &middot; DST &middot; pick 155 overall"><span class="pn">155</span><span class="pl">Patriots D/ST</span><span class="pp">DST</span></td><td class="dc p-dst" title="Eagles D/ST &middot; DST &middot; pick 154 overall"><span class="pn">154</span><span class="pl">Eagles D/ST</span><span class="pp">DST</span></td><td class="dc p-qb" title="Bo Nix &middot; QB &middot; pick 153 overall"><span class="pn">153</span><span class="pl">Bo Nix</span><span class="pp">QB</span></td><td class="dc p-k" title="Dominic Zvada &middot; K &middot; pick 152 overall"><span class="pn">152</span><span class="pl">Dominic Zvada</span><span class="pp">K</span></td><td class="dc p-k" title="Eddy Pineiro &middot; K &middot; pick 151 overall"><span class="pn">151</span><span class="pl">Eddy Pineiro</span><span class="pp">K</span></td></tr></tbody></table></div>
 </section>
-<section id="commish">
-  <h2>Commissioner</h2>
-  <p class="h2sub">Optional written content</p>
-  <p class="lede">ESPN cannot supply recaps, punishment stories, prize money or trade commentary
-  &mdash; those are yours to write. Fill in anything you want here, download the file, drop it
-  beside the script, and the next run bakes it into the page for everyone. Leave a box empty and
-  its section simply does not appear.</p>
-  <div class="note"><b>Typing here changes only your own browser.</b> Nothing is shared until you
-  download <code>content.json</code>, put it next to <code>league_history.py</code> and re-run it.</div>
-  <div class="card cm"><label>2019 &mdash; season recap</label><textarea data-k="recaps.2019"></textarea><label>2020 &mdash; season recap</label><textarea data-k="recaps.2020"></textarea><label>2021 &mdash; season recap</label><textarea data-k="recaps.2021"></textarea><label>2022 &mdash; season recap</label><textarea data-k="recaps.2022"></textarea><label>2023 &mdash; season recap</label><textarea data-k="recaps.2023"></textarea><label>2024 &mdash; season recap</label><textarea data-k="recaps.2024"></textarea><label>2025 &mdash; season recap</label><textarea data-k="recaps.2025"></textarea><label>2026 &mdash; season recap</label><textarea data-k="recaps.2026"></textarea><label>2019 &mdash; punishment story</label><input data-k="punishments.2019.coach" placeholder="Coach" value=""><textarea data-k="punishments.2019.story"></textarea><label>2020 &mdash; punishment story</label><input data-k="punishments.2020.coach" placeholder="Coach" value=""><textarea data-k="punishments.2020.story"></textarea><label>2021 &mdash; punishment story</label><input data-k="punishments.2021.coach" placeholder="Coach" value=""><textarea data-k="punishments.2021.story"></textarea><label>2022 &mdash; punishment story</label><input data-k="punishments.2022.coach" placeholder="Coach" value=""><textarea data-k="punishments.2022.story"></textarea><label>2023 &mdash; punishment story</label><input data-k="punishments.2023.coach" placeholder="Coach" value=""><textarea data-k="punishments.2023.story"></textarea><label>2024 &mdash; punishment story</label><input data-k="punishments.2024.coach" placeholder="Coach" value=""><textarea data-k="punishments.2024.story"></textarea><label>2025 &mdash; punishment story</label><input data-k="punishments.2025.coach" placeholder="Coach" value=""><textarea data-k="punishments.2025.story"></textarea><label>2026 &mdash; punishment story</label><input data-k="punishments.2026.coach" placeholder="Coach" value=""><textarea data-k="punishments.2026.story"></textarea><label>2019 &mdash; prize money</label><input data-k="prizeMoney.2019.1st" placeholder="1st" value=""><input data-k="prizeMoney.2019.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2019.3rd" placeholder="3rd" value=""><label>2020 &mdash; prize money</label><input data-k="prizeMoney.2020.1st" placeholder="1st" value=""><input data-k="prizeMoney.2020.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2020.3rd" placeholder="3rd" value=""><label>2021 &mdash; prize money</label><input data-k="prizeMoney.2021.1st" placeholder="1st" value=""><input data-k="prizeMoney.2021.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2021.3rd" placeholder="3rd" value=""><label>2022 &mdash; prize money</label><input data-k="prizeMoney.2022.1st" placeholder="1st" value=""><input data-k="prizeMoney.2022.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2022.3rd" placeholder="3rd" value=""><label>2023 &mdash; prize money</label><input data-k="prizeMoney.2023.1st" placeholder="1st" value=""><input data-k="prizeMoney.2023.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2023.3rd" placeholder="3rd" value=""><label>2024 &mdash; prize money</label><input data-k="prizeMoney.2024.1st" placeholder="1st" value=""><input data-k="prizeMoney.2024.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2024.3rd" placeholder="3rd" value=""><label>2025 &mdash; prize money</label><input data-k="prizeMoney.2025.1st" placeholder="1st" value=""><input data-k="prizeMoney.2025.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2025.3rd" placeholder="3rd" value=""><label>2026 &mdash; prize money</label><input data-k="prizeMoney.2026.1st" placeholder="1st" value=""><input data-k="prizeMoney.2026.2nd" placeholder="2nd" value=""><input data-k="prizeMoney.2026.3rd" placeholder="3rd" value="">
-    <div class="cmbar">
-      <button type="button" id="cmdl">Download content.json</button>
-      <button type="button" class="alt" id="cmclear">Clear this form</button>
-    </div>
-  </div>
-</section>
 </main></div>
 <script>
 (function(){ // collapse long tables to the top 10
@@ -858,14 +864,46 @@ td.dc .pp{font-size:9px;color:var(--muted)}
   });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
 })();
-(function(){ // nav highlight
-  var links={}; document.querySelectorAll('nav.side a').forEach(function(a){
-    links[a.getAttribute('href').slice(1)]=a; });
+(function(){ // nav highlight -- side nav on desktop, tab bar on mobile
+  var links={}, all=[];
+  document.querySelectorAll('nav.side a, nav.tabs a').forEach(function(a){
+    var k=a.getAttribute('href').slice(1);
+    (links[k]=links[k]||[]).push(a); all.push(a); });
+  function centre(a){ // keep the live tab in view without moving the page
+    var row=a.parentNode, max=row.scrollWidth-row.clientWidth;
+    if(max<=0) return;
+    var to=Math.max(0,Math.min(a.offsetLeft-(row.clientWidth-a.offsetWidth)/2,max));
+    if(Math.abs(row.scrollLeft-to)>2) row.scrollTo({left:to,behavior:'smooth'});
+  }
+  function mark(id){
+    if(!links[id]) return;
+    all.forEach(function(x){ x.classList.remove('on'); });
+    links[id].forEach(function(x){ x.classList.add('on');
+      if(x.parentNode.className==='tabrow') centre(x); });
+  }
   var obs=new IntersectionObserver(function(es){ es.forEach(function(en){
-    var a=links[en.target.id]; if(!a) return;
-    if(en.isIntersecting){ Object.values(links).forEach(function(x){x.classList.remove('on');});
-      a.classList.add('on'); } }); },{rootMargin:'-10% 0px -80% 0px'});
+    if(en.isIntersecting) mark(en.target.id); }); },{rootMargin:'-10% 0px -80% 0px'});
   document.querySelectorAll('main section[id]').forEach(function(s){ obs.observe(s); });
+})();
+(function(){ // mobile tab bar: hide going down the page, show coming back up
+  var bar=document.querySelector('nav.tabs'); if(!bar) return;
+  var last=window.pageYOffset||0, hold=0, queued=false;
+  function show(){ bar.classList.remove('hid'); }
+  function check(){
+    var y=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(y<0) y=0;
+    // a tab jump scrolls down on purpose -- do not read that as "hide"
+    if(Date.now()<hold){ show(); last=y; return; }
+    if(y<=8 || y<last-6) show();
+    else if(y>last+6 && y>bar.offsetHeight) bar.classList.add('hid');
+    last=y;
+  }
+  window.addEventListener('scroll',function(){
+    if(queued) return; queued=true;
+    window.requestAnimationFrame(function(){ queued=false; check(); });
+  },{passive:true});
+  bar.addEventListener('click',function(e){
+    if(e.target.closest && e.target.closest('a')){ hold=Date.now()+900; show(); } });
 })();
 (function(){ // commissioner form -> content.json
   var box=document.querySelector('.cm'); if(!box) return;
